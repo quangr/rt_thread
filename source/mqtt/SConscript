@@ -1,0 +1,18 @@
+import rtconfig
+from building import *
+
+cwd     = GetCurrentDir()
+path = [cwd + '/eng/atm',cwd + '/eng/dev_model',cwd + '/eng/dev_sign',cwd + '/eng/infra',cwd + '/eng/mqtt',cwd + '/eng/wrappers/']
+
+src=[]
+
+if GetDepend(['AT_DEVICE_USING_AIR720']):
+    src = Glob('./eng/*/*.c')
+    src+=Glob('./eng/wrappers/2g/*.c')
+if GetDepend(['AT_DEVICE_USING_EC200X']):
+    src = Glob('./eng/*/*.c')
+    src+=Glob('./eng/wrappers/4g/*.c')
+
+group = DefineGroup('mqtt', src, depend = [''], CPPPATH =path )
+
+Return('group')

@@ -1,0 +1,21 @@
+import rtconfig
+from building import *
+
+cwd     = GetCurrentDir()
+CPPPATH = [cwd]
+src     = ['main.c','app_net.c','tm1650.c','TM1629keyled.c','app_net.c']
+print("aaaaaaaaaaaaaaa")
+print(GetConfigValue("DANXIANG"))
+if GetDepend(['AT_DEVICE_USING_AIR720']) or GetDepend(['AT_DEVICE_USING_EC200X']):
+    src += Glob('mqtt_example.c')
+
+if GetDepend('SANXIANG'):
+    src += Glob('adc_s.c')
+    src += Glob('datasetting_s.c')
+if GetDepend("DANXIANG"):
+    src += Glob('adc_d.c')
+    src += Glob('datasetting_d.c')
+
+group = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH)
+
+Return('group')

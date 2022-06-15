@@ -1,0 +1,16 @@
+from building import *
+
+cwd  = GetCurrentDir()
+
+CPPPATH = [cwd]
+
+# add general drivers
+src = Split('''
+system_hc32f460petb.c
+''')
+
+CPPDEFINES = ['USE_DEVICE_DRIVER_LIB', 'HC32F460', '__DEBUG']
+
+group = DefineGroup('Common', src, depend = [''], CPPPATH = CPPPATH,CPPDEFINES = CPPDEFINES)
+
+Return('group')

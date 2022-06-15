@@ -1,0 +1,32 @@
+{
+    "files.associations": {
+        "hc32f460_utility.h": "c",
+        "tm1650.h": "c",
+        "hc32f460_gpio.h": "c",
+        "hc32_ddl.h": "c",
+        "rtdevice.h": "c",
+        "drv_gpio.h": "c",
+        "board_config.h": "c",
+        "hc32f460_adc.h": "c",
+        "drv_usart.h": "c",
+        "type_traits": "c",
+        "at_device.h": "c",
+        "array": "c",
+        "cstdio": "cpp",
+        "random": "c",
+        "limits": "c",
+        "ranges": "c",
+        "drv_ds1302.h": "c",
+        "i2c.h": "c",
+        "at24cxx.h": "c",
+        "socket.h": "c",
+        "board.h": "c",
+        "drv_soft_i2c.h": "c",
+        "i2c-bit-ops.h": "c",
+        "string": "c",
+        "string_view": "c",
+        "compare": "c",
+        "tm1629keyled.h": "c",
+        "renode.h": "c"
+    }
+}

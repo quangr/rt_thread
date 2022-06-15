@@ -1,0 +1,73 @@
+# RT-Thread building script for bridge
+
+import rtconfig
+Import('RTT_ROOT')
+from building import *
+
+# get current directory
+cwd = GetCurrentDir()
+
+Import('rtconfig')
+if rtconfig.RENODE:
+    src = Split("""
+    board_config.c
+    drv_gpio.c
+    drv_irq.c
+    drv_usart.c
+    drv_soft_i2c.c
+    tm1650.c
+    drv_renode_timer.c
+    """)
+else:
+    src = Split("""
+    board_config.c
+    drv_gpio.c
+    drv_irq.c
+    drv_usart.c
+    drv_soft_i2c.c
+    tm1650.c
+    drv_ds1302.c
+    """)
+    
+
+# The set of source files associated with this SConscript file.
+
+#src += Glob('HC32F4A0_StdPeriph_Driver/src/*.c')
+
+# if GetDepend(['RT_USING_SERIAL']):
+#     src += ['HC32F4A0_StdPeriph_Driver/src/hc32f4a0_usart.c']
+#     src += ['HC32F4A0_StdPeriph_Driver/src/hc32f4a0_tmr0.c']
+
+# if GetDepend(['RT_USING_I2C']):
+#     src += ['HC32F4A0_StdPeriph_Driver/src/hc32f4a0_i2c.c']
+
+# if GetDepend(['RT_USING_SPI']):
+#     src += ['HC32F4A0_StdPeriph_Driver/src/hc32f4a0_spi.c']
+#     src += ['HC32F4A0_StdPeriph_Driver/src/hc32f4a0_qspi.c']
+
+# if GetDepend(['RT_USING_CAN']):
+#     src += ['HC32F4A0_StdPeriph_Driver/src/hc32f4a0_can.c']
+
+# if GetDepend(['RT_USING_ADC']):
+#     src += ['HC32F4A0_StdPeriph_Driver/src/hc32f4a0_adc.c']
+
+# if GetDepend(['RT_USING_RTC']):
+#     src += ['HC32F4A0_StdPeriph_Driver/src/hc32f4a0_rtc.c']
+
+# if GetDepend(['RT_USING_WDT']):
+#     src += ['HC32F4A0_StdPeriph_Driver/src/hc32f4a0_wdt.c']
+#     src += ['HC32F4A0_StdPeriph_Driver/src/hc32f4a0_swdt.c']
+
+# if GetDepend(['RT_USING_HWTIMER']) or GetDepend(['RT_USING_PWM'] or GetDepend(['RT_USING_PULSE_ENCODER'])):
+#     src += ['HC32F4A0_StdPeriph_Driver/src/hc32f4a0_tmra.c']
+
+
+#add headfile script 
+path = [cwd]
+
+# CPPDEFINES = ['USE_DDL_DRIVER', rtconfig.MCU_TYPE, '__DEBUG']
+
+# group = DefineGroup('HC32_StdPeriph', src, depend = [''], CPPPATH = path, CPPDEFINES = CPPDEFINES)
+group = DefineGroup('Drivers', src, depend = [''], CPPPATH = path)
+
+Return('group')

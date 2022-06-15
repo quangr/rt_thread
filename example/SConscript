@@ -1,0 +1,15 @@
+import rtconfig
+from building import *
+
+cwd     = GetCurrentDir()
+if rtconfig.CROSS_TOOL == 'gcc':
+    src =  ['GCC/startup_hc32f460petb.s']
+elif rtconfig.CROSS_TOOL == 'keil':
+    src =  ['MDK/startup_hc32f460petb.s']
+elif rtconfig.CROSS_TOOL == 'iar':
+    src =  ['EWARN/startup_hc32f460petb.s']
+
+
+group = DefineGroup('startup', src, depend = [''])
+
+Return('group')

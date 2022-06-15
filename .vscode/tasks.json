@@ -1,0 +1,69 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "options": {"env": {"RTT_CC":"gcc","Renode":"true",}},
+            "label": "Build renode ",
+            "type": "shell",
+            "command": "C:\\Users\\quangr\\Documents\\huada\\rt-thread\\env\\tools\\Python27\\Scripts\\scons.bat -j4",
+            "group": "build"
+            
+        },
+        {
+            "options": {"env": {"RTT_CC":"gcc"}},
+            "label": "Build Release",
+            "type": "shell",
+            "command": "C:\\Users\\quangr\\Documents\\huada\\rt-thread\\env\\tools\\Python27\\Scripts\\scons.bat -j4",
+            "group": "build"
+            
+        },
+        {
+            "label": "download",
+            "type": "shell",
+            "command": "pyocd flash --erase chip --target hc32f460xe ${workspaceFolder}\\hc32f4A0.elf",
+            "group": "build"
+        },    
+        {
+            "label": "renode",
+            "type": "shell",
+            "options": {
+                "cwd": "C:\\Users\\quangr\\Documents\\huada\\dianbiao1\\huada"
+              },
+            "command": "renode .\\test.resc",
+            "group": "build"
+        },    
+            {
+            "label": "clear",
+            "options": {"env": {"RTT_CC":"gcc"}},
+            "type": "shell",
+            "command": "C:\\Users\\quangr\\Documents\\huada\\rt-thread\\env\\tools\\Python27\\Scripts\\scons.bat -c",
+            "group": "build"
+        }        
+
+    ],
+    "problemMatcher": [ { 
+        "owner": "cpp",
+        "fileLocation": "autoDetect",
+        "pattern": {
+            "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "severity": 4,
+            "message": 5
+        }},
+        {
+            "owner": "cpp",
+        "fileLocation": "autoDetect",
+        "pattern": {
+        
+            "regexp": "^(.*):(\\d+):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "message": 3
+            }
+        }]
+    }
+

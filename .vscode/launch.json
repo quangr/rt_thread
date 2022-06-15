@@ -1,0 +1,21 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "cwd": "${workspaceRoot}",
+            "name": "cortex-debug launch",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "pyocd",
+            "interface": "swd",
+            "executable": ".\\hc32f4A0.elf",
+            "runtoentrypoint": true,
+            "svdFile": ".\\example\\SVD\\HDSC_HC32F460.svd",
+            "targetId": "hc32f460xe",
+            "cmsisPack": ".\\example\\HDSC.HC32F460.1.0.7.pack"
+        }]
+
+}

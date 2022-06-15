@@ -1,0 +1,22 @@
+[
+ {
+  "path": "/packages/iot/at_device", 
+  "ver": "v2.0.4", 
+  "name": "AT_DEVICE"
+ }, 
+ {
+  "path": "/packages/system/rt_kprintf_threadsafe", 
+  "ver": "latest", 
+  "name": "RT_KPRINTF_THREADSAFE"
+ }, 
+ {
+  "path": "/packages/peripherals/u8g2", 
+  "ver": "c-latest", 
+  "name": "U8G2"
+ }, 
+ {
+  "path": "/packages/peripherals/at24cxx", 
+  "ver": "latest", 
+  "name": "AT24CXX"
+ }
+]
